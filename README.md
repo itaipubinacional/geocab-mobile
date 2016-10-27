@@ -22,8 +22,3 @@ Se você encontrou um erro abra uma issue que trabalharemos para corrigí-lo.
 
 Se você encontrou e corrigiu o bug (obrigado!) ou desenvolveu uma nova funcionalidade (eba!) por favor envie uma pull request que teremos o maior prazer em avaliá-la e distribuí-la para todos.
 
-Saiba Mais
-
-Sobre a Itaipu Binacional
-
-Sobre o programa Cultivando Água Boa
