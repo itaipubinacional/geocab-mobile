@@ -83,6 +83,6 @@
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
   <engine name="android" spec="~5.1.1"/>
   <plugin name="cordova-plugin-googleplus" spec="https://github.com/EddyVerbruggen/cordova-plugin-googleplus">
-    <variable name="REVERSED_CLIENT_ID" value="856589923551-g4kd18q9c6d1qi6gkccu7t0e537e8shm.apps.googleusercontent.com"/>
+    <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.978630797426-ai0fic65kt3canfvib3e5bc2h89fib0m"/>
   </plugin>
 </widget>
