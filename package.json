@@ -27,7 +27,8 @@
     "cordova-plugin-file",
     "ionic-plugin-keyboard",
     "cordova-plugin-crosswalk-webview",
-    "cordova-plugin-splashscreen"
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-googleplus"
   ],
   "cordovaPlatforms": [
     "android"
