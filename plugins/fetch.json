@@ -2,7 +2,7 @@
     "cordova-plugin-whitelist": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-whitelist@1.3.0"
+            "id": "cordova-plugin-whitelist@1.3.2"
         },
         "is_top_level": true,
         "variables": {}
@@ -102,8 +102,6 @@
             "subdir": "."
         },
         "is_top_level": true,
-        "variables": { 
-		"REVERSED_CLIENT_ID": "com.googleusercontent.apps.978630797426-ai0fic65kt3canfvib3e5bc2h89fib0m"
-		}
+        "variables": {}
     }
 }

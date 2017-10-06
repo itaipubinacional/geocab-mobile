@@ -7,7 +7,7 @@
   /**
    * Desenvolvimento
    */
-    // module.constant('$API_ENDPOINT', 'http://192.168.20.108:8080/geocab');
+    module.constant('$API_ENDPOINT', 'http://192.168.20.161:8081/geocab');
   /**
    * Homologação
    */
@@ -16,7 +16,7 @@
   /**
    * Produção
    */
-  module.constant('$API_ENDPOINT', 'https://geocab.itaipu.gov.br');
+  // module.constant('$API_ENDPOINT', 'https://geocab.itaipu.gov.br');
 
   /**
    *
