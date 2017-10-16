@@ -1645,7 +1645,7 @@
                         photo.description = file.description;
                         photo.contentLength = file.contentLength ? file.contentLength : file.source.length;
                         photo.mimeType = file.mimeType;
-
+                        photoAlbum.markerAttribute = markerAttribute;
                         photoAlbum.photos.push(photo);
 
                       });

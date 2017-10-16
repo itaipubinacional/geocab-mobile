@@ -7,12 +7,13 @@
   /**
    * Desenvolvimento
    */
-    module.constant('$API_ENDPOINT', 'http://192.168.20.161:8081/geocab');
+  // module.constant('$API_ENDPOINT', 'http://192.168.20.120:8080/geoitaipu');
   /**
    * Homologação
    */
-    //module.constant('$API_ENDPOINT', 'http://chi554a:8080/geocab');
+    module.constant('$API_ENDPOINT', 'http://chi554a:8080/geocab');
     // module.constant('$API_ENDPOINT', 'http://geocab.sbox.me');
+
   /**
    * Produção
    */
@@ -26,7 +27,7 @@
 
     $ionicConfigProvider.views.swipeBackEnabled(false);
 
-    $logProvider.debugEnabled(true); //TODO Fixme;
+    $logProvider.debugEnabled(false); //TODO Fixme;
 
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel|data):/);
     //-------
