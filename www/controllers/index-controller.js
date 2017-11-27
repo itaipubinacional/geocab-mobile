@@ -191,7 +191,7 @@
 
             $state.go( $scope.MAP_INDEX );
 
-            $scope.apply();
+            $scope.$apply();
 
             $cordovaToast.showShortBottom($translate("map.Mark-was-successfully-deleted")).then(function(success) {
             }, function(error) {

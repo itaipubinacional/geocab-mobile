@@ -7,17 +7,17 @@
   /**
    * Desenvolvimento
    */
-  // module.constant('$API_ENDPOINT', 'http://192.168.20.120:8080/geoitaipu');
+  module.constant('$API_ENDPOINT', 'http://192.168.20.16:8081/geoitaipu');
   /**
    * Homologação
    */
-    module.constant('$API_ENDPOINT', 'http://chi554a:8080/geocab');
+    //module.constant('$API_ENDPOINT', 'http://chi554a:8080/geoitaipu');
     // module.constant('$API_ENDPOINT', 'http://geocab.sbox.me');
 
   /**
    * Produção
    */
-  // module.constant('$API_ENDPOINT', 'https://geocab.itaipu.gov.br');
+  //module.constant('$API_ENDPOINT', 'https://geocab.itaipu.gov.br');
 
   /**
    *

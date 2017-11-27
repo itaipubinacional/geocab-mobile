@@ -3,11 +3,25 @@
   "version": "1.1.1",
   "description": "GeoITAIPU Mobile",
   "dependencies": {
+    "cordova-android": "^5.1.1",
+    "cordova-custom-config": "^4.0.2",
+    "cordova-ios": "^4.5.3",
+    "cordova-plugin-camera": "~2.1.1",
+    "cordova-plugin-crosswalk-webview": "~1.6.1",
+    "cordova-plugin-datepicker": "~0.9.3",
+    "cordova-plugin-file": "~4.1.1",
+    "cordova-plugin-googleplus": "git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git",
+    "cordova-plugin-keyboard": "~1.1.4",
+    "cordova-plugin-network-information": "~1.2.0",
+    "cordova-plugin-splashscreen": "~3.1.0",
+    "cordova-plugin-whitelist": "~1.2.1",
+    "cordova-plugin-x-toast": "~2.5.0",
     "gulp": "^3.5.6",
-    "gulp-sass": "^2.0.4",
     "gulp-concat": "^2.2.0",
     "gulp-minify-css": "^0.3.0",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.0.4",
+    "ionic-plugin-keyboard": "~2.0.1"
   },
   "devDependencies": {
     "bower": "^1.3.3",
@@ -28,9 +42,34 @@
     "ionic-plugin-keyboard",
     "cordova-plugin-crosswalk-webview",
     "cordova-plugin-splashscreen",
-    "cordova-plugin-googleplus"
+    "cordova-custom-config"
   ],
   "cordovaPlatforms": [
     "android"
-  ]
+  ],
+  "cordova": {
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "plugins": {
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.229642675418-41v81h0p5sk3utcqqrifmujdbt0fatce"
+      },
+      "cordova-plugin-whitelist": {
+        "android-package": "org.apache.cordova.whitelist.WhitelistPlugin",
+        "onload": "true"
+      },
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-datepicker": {},
+      "cordova-plugin-keyboard": {},
+      "cordova-plugin-x-toast": {},
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-camera": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-crosswalk-webview": {},
+      "cordova-custom-config": {}
+    }
+  }
 }
