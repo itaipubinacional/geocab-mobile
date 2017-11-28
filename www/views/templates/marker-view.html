@@ -80,7 +80,8 @@
 
           </label>
 
-          <!-- MULTIPLE_CHOICE  OLD
+          <!-- MULTIPLE_CHOICE  OLD -->
+          
             <label
                 class="item item-input item-select" ng-if="attribute.type == 'MULTIPLE_CHOICE'"
                 ng-init="attribute.selectedAttribute=setSelectedAttribute(attribute)">
@@ -90,9 +91,10 @@
                   ng-options="option.description for option in attribute.options">
                 </select>
             </label>
-          -->
+         
           
           <!-- MULTIPLE_CHOICE -->
+<!--           
           <label
                 class="item item-input item-select" ng-if="attribute.type == 'MULTIPLE_CHOICE'"
                 ng-init="attribute.selectedAttribute=setSelectedAttribute(attribute)">
@@ -102,13 +104,12 @@
                <select name="input{{$index}}" 
                  ng-model="attribute.selectedAttribute" ng-required="attribute.required"
                  >
-                 <!-- ng-options="option.description for option in attribute.options" -->
-                   <option value="{{option}}" ng-value="{{option}}" ng-repeat="option in attribute.options"> 
+                   <option [value]="{{option}}" ng-repeat="option in attribute.options"> 
                      {{ option.description }} 
                    </option>
                </select>
- 
-           </label>
+
+           </label> -->
 
 
           <div class="form-error"
