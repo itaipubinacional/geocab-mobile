@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-custom-config": {
+      "PACKAGE_NAME": "br.com.geocab.mobile"
+    },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "br.com.geocab.mobile"
     },
@@ -44,9 +47,6 @@
       "PACKAGE_NAME": "br.com.geocab.mobile"
     },
     "ionic-plugin-keyboard": {
-      "PACKAGE_NAME": "br.com.geocab.mobile"
-    },
-    "cordova-custom-config": {
       "PACKAGE_NAME": "br.com.geocab.mobile"
     }
   },

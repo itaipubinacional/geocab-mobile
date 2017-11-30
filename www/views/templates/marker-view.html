@@ -80,41 +80,25 @@
 
           </label>
 
-          <!-- MULTIPLE_CHOICE  OLD -->
+          <!-- MULTIPLE_CHOICE -->
           
             <label
                 class="item item-input item-select" ng-if="attribute.type == 'MULTIPLE_CHOICE'"
                 ng-init="attribute.selectedAttribute=setSelectedAttribute(attribute)">
                 <span class="input-label">{{ attribute.name }} </span>
                 <select name="input{{$index}}" 
+                  placeholder="Selecione"
                   ng-model="attribute.selectedAttribute" ng-required="attribute.required"
                   ng-options="option.description for option in attribute.options">
+                    <option value="" ng-value="" >Selecione</option>
                 </select>
             </label>
          
-          
-          <!-- MULTIPLE_CHOICE -->
-<!--           
-          <label
-                class="item item-input item-select" ng-if="attribute.type == 'MULTIPLE_CHOICE'"
-                ng-init="attribute.selectedAttribute=setSelectedAttribute(attribute)">
- 
-               <span class="input-label">{{ attribute.name }} </span>
-               
-               <select name="input{{$index}}" 
-                 ng-model="attribute.selectedAttribute" ng-required="attribute.required"
-                 >
-                   <option [value]="{{option}}" ng-repeat="option in attribute.options"> 
-                     {{ option.description }} 
-                   </option>
-               </select>
-
-           </label> -->
 
 
           <div class="form-error"
                ng-show="(markerForm.input{{$index}}.$invalid && markerForm.input{{$index}}.$touched) || (isFormSubmit && attribute.required && markerForm.input{{$index}}.$invalid)">
-            {{ 'map.Field-required' | translate }}
+            {{ 'mobile.invalid-field' | translate }}
           </div>
         </div>
       </fieldset>

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="br.com.geocab.mobile" version="2.0.2-RELEASE" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>GeoITAIPU Mobile</name>
+    <name>GeoITAIPU</name>
     <description />
     <content src="index.html" />
     <access origin="*" />
@@ -85,8 +85,8 @@
         </config-file>
     </platform>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
-    <engine name="android" spec="^5.1.1" />
     <engine name="ios" spec="^4.5.3" />
+    <engine name="android" spec="^6.3.0" />
     <plugin name="cordova-plugin-googleplus" spec="git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git">
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.229642675418-41v81h0p5sk3utcqqrifmujdbt0fatce" />
     </plugin>
