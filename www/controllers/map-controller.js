@@ -39,7 +39,6 @@
       $scope.MAP_INDEX = "map.index";
       $scope.MAP_GALLERY = "map.gallery";
       $scope.MAP_MARKER = "map.marker";
-
       $scope.MAP_WMS = "map.wms";
 
       /**
@@ -209,37 +208,6 @@
           });
         }
 
-        //  if ($scope.allInternalLayerGroups.length == 0) {
-        //     $rootScope.$broadcast('loading:show');
-        //     var intervalPromise = $interval(function () {
-        //       if (angular.isDefined(layerGroupService)) {
-        //         layerGroupService.listAllInternalLayerGroups({
-        //           callback: function (result) {
-        //             $scope.allInternalLayerGroups = result;
-        //             $log.debug($scope.allInternalLayerGroups);
-        //             //$scope.currentEntity.layer = $scope.allInternalLayerGroups[0];
-        //             $rootScope.$broadcast('loading:hide');
-        //             if(!angular.equals($scope.currentEntity, {}) && !angular.equals($scope.currentEntity.layer, {})) {
-        //               angular.forEach(result, function (layer) {
-        //                 if ($scope.currentEntity.layer && layer.id == $scope.currentEntity.layer.id) {
-        //                   $scope.currentEntity.layer = layer;
-        //                 }
-        //               });
-        //             }
-        //             $interval.cancel(intervalPromise);
-        //             $scope.$apply();
-        //           },
-        //           errorHandler: function (message, exception) {
-        //             $log.debug(message);
-        //             $interval.cancel(intervalPromise);
-        //             localStorage.setItem('lastState', $scope.MAP_INDEX);
-        //             $rootScope.$broadcast('loading:hide');
-        //             $scope.$apply();
-        //           }
-        //         });
-        //       }
-        //     }, 500);
-        //   }
       };
 
       $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
@@ -380,10 +348,7 @@
 
       $scope.toggleLeftSideMenu = function () {
         $ionicSideMenuDelegate.toggleLeft();
-
-        //    $scope.listAllInternalLayerGroups();
         $scope.getUserAuthenticated();
-
       };
 
       $scope.viewWMS = function () {
@@ -391,7 +356,6 @@
       };
 
       $scope.setImagePath = function (photo) {
-        //$log.debug(image);
         if (photo != null && photo != '') {
           if (typeof photo === 'string' && photo.match(/broker/)) {
             return $rootScope.$API_ENDPOINT + photo.match(/\/broker.*/)[0];
@@ -413,7 +377,7 @@
       };
 
       $scope.clearNewMarker = function () {
-        //if(!angular.equals($scope.currentEntity, {})) {
+  
         $scope.map.removeLayer($scope.currentCreatingInternalLayer);
         $scope.currentCreatingInternalLayer = {};
 
@@ -422,7 +386,7 @@
         }
 
         $scope.currentFeature = '';
-        //}
+
       };
 
       $scope.removeRecursiveAttributes = function (markerAttribute) {
@@ -460,8 +424,6 @@
         $scope.imgResult = '';
 
         $state.go($scope.MAP_MARKER);
-
-        // $scope.listAllInternalLayerGroups();
 
         $scope.showMarkerDetails = true;
 
@@ -866,13 +828,13 @@
           });
 
           $timeout(function () {
-            if (!angular.equals($scope.allLayers, []))
-              $scope.toggleLastLayer();
+            
+            if (!angular.equals($scope.allLayers, []))  $scope.toggleLastLayer();
 
             $scope.showNewMarker();
 
-            if (!angular.equals($scope.allLayers, []))
-              $scope.loadSelectedLayers();
+            if (!angular.equals($scope.allLayers, [])) $scope.loadSelectedLayers();
+
           });
         });
 
@@ -1046,7 +1008,7 @@
       };
 
 
-      $scope.toggleLayer = function (layer, removeCurrentEntity) {
+      $scope.toggleLayer = function (layer, removeCurrentEntity, hideToast = false) {
 
         $log.debug('toggleLayer');
 
@@ -1217,8 +1179,9 @@
                       } else {
 
                         $rootScope.$broadcast('loading:hide');
-
-                        $cordovaToast.showShortBottom('Nenhum ponto encontrado').then(function (success) { }, function (error) { });
+                        if (!hideToast) {
+                          $cordovaToast.showShortBottom('Nenhum ponto encontrado').then(function (success) { }, function (error) { });
+                        }
 
                       }
 
@@ -1275,7 +1238,9 @@
               } else {
 
                 if ( $scope.currentEntity.wktCoordenate ){                  
-                  $cordovaToast.showShortBottom("Existem 3 camadas sendo exibidas, para visualizar a ultima camada desative alguma outra da exibição").then(function (success) { }, function (error) { });
+                  $cordovaToast.showShortBottom
+                    ("Existem 3 camadas sendo exibidas, para visualizar a ultima camada desative alguma outra da exibição", '5000')
+                    .then( function () {}, function () {});
                 }
                 
                 $scope.currentEntity = {};
@@ -1322,7 +1287,7 @@
                   });
 
                   $scope.allLayers.filter((layer) => layer.visible).forEach((visibleLayer) => {
-                    $scope.toggleLayer(visibleLayer);
+                    $scope.toggleLayer(visibleLayer, null, true);
                   });
 
                   $rootScope.$broadcast('loading:hide');
