@@ -1239,7 +1239,7 @@
 
                 if ( $scope.currentEntity.wktCoordenate ){                  
                   $cordovaToast.showShortBottom
-                    ("Existem 3 camadas sendo exibidas, para visualizar a ultima camada desative alguma outra da exibição", '5000')
+                    ("Existem 3 camadas sendo exibidas, para visualizar a camada desejada desative alguma outra da exibição", 'long')
                     .then( function () {}, function () {});
                 }
                 
