@@ -1237,10 +1237,18 @@
 
               } else {
 
-                if ( $scope.currentEntity.wktCoordenate ){                  
-                  $cordovaToast.showShortBottom
-                    ("Existem 3 camadas sendo exibidas, para visualizar a camada desejada desative alguma outra da exibição", 'long')
+                if ( $scope.currentEntity.wktCoordenate ){
+              
+                  /**
+                   * Mostra a mensagem de sucesso e depois a de limite de camadas
+                   */
+                    $timeout(function () {
+                    
+                    $cordovaToast.show
+                    ("Existem 3 camadas sendo exibidas, desative alguma para visualizar a desejada", '5000', 'bottom')
                     .then( function () {}, function () {});
+        
+                  }, 2000);
                 }
                 
                 $scope.currentEntity = {};
