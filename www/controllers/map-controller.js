@@ -196,7 +196,7 @@
       $scope.listAllInternalLayerGroups = function () {
 
         //Camadas que podem receber postagens
-        $scope.allInternalLayerGroups = $scope.allLayers.filter((layer) => {
+        $scope.allInternalLayerGroups = $scope.allLayers.filter(function(layer) {
           return layer.enabled && !layer.dataSource.url;
         });
 
@@ -1008,7 +1008,8 @@
       };
 
 
-      $scope.toggleLayer = function (layer, removeCurrentEntity, hideToast = false) {
+      $scope.toggleLayer = function (layer, removeCurrentEntity, hideToast) {
+      	  hideToast = hideToast === undefined ? false : hideToast;
 
         $log.debug('toggleLayer');
 
@@ -1230,7 +1231,7 @@
 
             } else {
 
-              if ($scope.allLayers.filter((layer) => { return layer.visible }).length < 3) {
+              if ($scope.allLayers.filter(function(layer) { return layer.visible }).length < 3) {
 
                 $scope.internalLayer.visible = true;
                 $scope.toggleLayer($scope.internalLayer, true);
@@ -1285,16 +1286,16 @@
 
                   $scope.allLayers = result.content;
 
-                  $scope.allLayers.map((layer) => {
+                  $scope.allLayers.map(function(layer) {
                     // <3 entra na condição e adiciona o 3°
-                    if ($scope.allLayers.filter((layer) => { return layer.visible }).length < 3) {
+                    if ($scope.allLayers.filter(function(layer) { return layer.visible }).length < 3) {
                       layer.visible = layer.startEnabled;
                     } else {
                       layer.visible = false;
                     }
                   });
 
-                  $scope.allLayers.filter((layer) => layer.visible).forEach((visibleLayer) => {
+                  $scope.allLayers.filter(function(layer){return layer.visible;}).forEach(function(visibleLayer) {
                     $scope.toggleLayer(visibleLayer, null, true);
                   });
 
