@@ -41,23 +41,37 @@
     </div>
     <form id="marker" name="markerForm" novalidate ng-submit="saveMarker(markerForm)">
       <fieldset ng-disabled="isDisabled">
+
         <div ng-repeat="attribute in currentEntity.markerAttribute track by $index" ng-if="attribute.type != 'PHOTO_ALBUM'">
-          <!--text or number-->
+
+          <!--TEXT or NUMBER-->
           <label
             ng-class="{'has-error': (markerForm.input{{$index}}.$invalid && markerForm.input{{$index}}.$touched) || (isFormSubmit && attribute.required && markerForm.input{{$index}}.$invalid)}"
             class="item item-input item-floating-label"
             ng-if="attribute.type == 'TEXT' || attribute.type == 'NUMBER'"
             ng-keydown="nextInput($event)">
-            <span class="input-label">{{ attribute.name }} </span>
+            <span class="input-label">{{ attribute.name }}</span>
             <input type="{{ attribute.type }}" name="input{{$index}}" ng-model="attribute.value"
                    placeholder="{{ attribute.name }}" ng-required="attribute.required">
           </label>
-          <!--boolean-->
+
+
+          <!--DATE-->
           <label
             ng-class="{'has-error': (markerForm.input{{$index}}.$invalid && markerForm.input{{$index}}.$touched) || (isFormSubmit && attribute.required && markerForm.input{{$index}}.$invalid)}"
-            class="item item-input item-select" ng-if="attribute.type == 'BOOLEAN'">
+            class="item item-input item-floating-label" 
+            ng-if="attribute.type == 'DATE'">
             <span class="input-label">{{ attribute.name }}</span>
+            <input type="text" ng-model="attribute.value" name="input{{$index}}" ng-focus="showDatePicker(attribute)"
+                  placeholder="{{ attribute.name }}" ng-required="attribute.required">
+          </label>
 
+
+          <!--BOOLEAN-->
+          <label
+            class="item item-input item-select" 
+            ng-if="attribute.type == 'BOOLEAN'">
+            <span class="input-label">{{ attribute.name }}</span>
             <select ng-model="attribute.value" name="input{{$index}}" ng-required="attribute.required" ng-init="attribute.value=setSelectValue(attribute)">
               <option value="" ng-value="" ng-if="!attribute.required">Selecione</option>
               <option value="Yes" ng-value="'Yes'">{{ 'map.Yes' | translate }}</option>
@@ -65,17 +79,26 @@
             </select>
 
           </label>
-          <!--date-->
-          <label
-            ng-class="{'has-error': (markerForm.input{{$index}}.$invalid && markerForm.input{{$index}}.$touched) || (isFormSubmit && attribute.required && markerForm.input{{$index}}.$invalid)}"
-            class="item item-input item-floating-label" ng-if="attribute.type == 'DATE'">
-            <span class="input-label">{{ attribute.name }}</span>
-            <input type="text" ng-model="attribute.value" name="input{{$index}}" ng-focus="showDatePicker(attribute)"
-                   placeholder="{{ attribute.name }}" ng-required="attribute.required">
-          </label>
+
+          <!-- MULTIPLE_CHOICE -->
+          
+            <label
+                class="item item-input item-select" ng-if="attribute.type == 'MULTIPLE_CHOICE'"
+                ng-init="attribute.selectedAttribute=setSelectedAttribute(attribute)">
+                <span class="input-label">{{ attribute.name }} </span>
+                <select name="input{{$index}}" 
+                  placeholder="Selecione"
+                  ng-model="attribute.selectedAttribute" ng-required="attribute.required"
+                  ng-options="option.description for option in attribute.options">
+                    <option value="" ng-value="" >Selecione</option>
+                </select>
+            </label>
+         
+
+
           <div class="form-error"
                ng-show="(markerForm.input{{$index}}.$invalid && markerForm.input{{$index}}.$touched) || (isFormSubmit && attribute.required && markerForm.input{{$index}}.$invalid)">
-            {{ 'map.Field-required' | translate }}
+            {{ 'mobile.invalid-field' | translate }}
           </div>
         </div>
       </fieldset>

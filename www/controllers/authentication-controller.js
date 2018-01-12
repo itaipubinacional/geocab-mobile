@@ -53,7 +53,7 @@ angular.module('application')
              $scope.coordinatesFormat = result.coordinates;
              $scope.$apply();
            },
-           errorHandler: function(message, exception) {
+           errorHandler: function(message) {
              $log.debug(message);
              $scope.$apply();
            }
@@ -97,7 +97,7 @@ angular.module('application')
           }).then(function (user) {
               $scope.login('/login/facebook',  {'email' : user.email, 'token' : response.authResponse.accessToken});
             },
-            function (error) {
+            function () {
               $scope.loginFailed();
             });
         } else {
@@ -121,9 +121,10 @@ angular.module('application')
         template: $translate('authentication.Logging-in')
       });
 
+
       window.plugins.googleplus.login(
         {
-          'offline': true, // optional, used for Android only - if set to true the plugin will also return the OAuth access token ('oauthToken' param), that can be used to sign in to some third party services that don't accept a Cross-client identity token (ex. Firebase)
+          'offline': true // optional, used for Android only - if set to true the plugin will also return the OAuth access token ('oauthToken' param), that can be used to sign in to some third party services that don't accept a Cross-client identity token (ex. Firebase)
         },
         function (user) {
           $scope.login('/login/google', {'email': user.email, 'token' : user.oauthToken});
